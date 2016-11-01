@@ -27,8 +27,8 @@ mv /mnt/gentoo/zerofree* ./
 cd zerofree*/
 
 mount -o remount,ro /mnt/gentoo
-./zerofree /dev/sda4
+./zerofree /dev/sda3
 
-swapoff /dev/sda3
-dd if=/dev/zero of=/dev/sda3
-mkswap /dev/sda3
+swapoff /dev/sda2
+dd if=/dev/zero of=/dev/sda2
+mkswap /dev/sda2

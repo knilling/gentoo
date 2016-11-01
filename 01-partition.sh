@@ -1,16 +1,13 @@
 #!/bin/bash
 
-sgdisk \
-  -n 1:0:+128M -t 1:8300 -c 1:"linux-boot" \
-  -n 2:0:+512M -t 2:ef00 -c 2:"bios-boot"  \
-  -n 3:0:+1G   -t 3:8200 -c 3:"swap"       \
-  -n 4:0:0     -t 4:8300 -c 4:"linux-root" \
-  -p /dev/sda
+DRIVE=/dev/sda
+parted -s $DRIVE mklabel msdos
+parted -s $DRIVE "mkpart primary 1MB 128MB"
+parted -s $DRIVE "mkpart primary 128MB 640MB"
+parted -s $DRIVE "mkpart primary 640MB -1s"
+parted -s $DRIVE "set 1 boot on"
 
-sync
+mkfs.ext2 -F -L boot -T small /dev/sda1
+mkfs.ext4 -F -L root -j /dev/sda3
 
-mkfs.ext2 /dev/sda1
-mkfs.vfat -F 32 -n EFI-BOOT /dev/sda2
-mkfs.ext4 /dev/sda4
-
-mkswap /dev/sda3 && swapon /dev/sda3
+mkswap /dev/sda2 && swapon /dev/sda2
