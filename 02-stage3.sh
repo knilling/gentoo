@@ -1,5 +1,6 @@
 #!/bin/bash
 
+STAGE3=20161020
 tarball=stage3-amd64-$STAGE3.tar.bz2
 
 mount /dev/sda4 /mnt/gentoo
