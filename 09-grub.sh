@@ -2,7 +2,7 @@
 
 chroot /mnt/gentoo /bin/bash <<'EOF'
 emerge -vq sys-boot/grub
-grub-install /dev/sda
+grub-install --efi-directory=/boot/efi
 echo "GRUB_TIMEOUT=0.1" >> /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
 EOF
