@@ -10,6 +10,8 @@ rc-update add sshd default
 emerge -vq net-misc/dhcpcd
 USE="minimal" emerge -vq vim
 emerge -vq dev-vcs/git
+emerge -vq lsof
+emerge -vq htop
 cat > /etc/portage/package.keywords/vagrant <<'DATA'
 =dev-ruby/nokogiri-1.6.8.1 ~amd64
 =dev-ruby/hashicorp-checkpoint-0.1.4-r1 ~amd64
