@@ -33,5 +33,5 @@ USE="cpu_flags_x86_mmx" emerge -vq vagrant
 mkdir -p /etc/portage/package.license
 echo "=app-emulation/virtualbox-extpack-oracle-4.3.38.106717 PUEL" > /etc/portage/package.license/virtualbox-extpack-oracle
 emerge virtualbox-extpack-oracle
-USE="xen virtfs ssh" emerge -vq qemu
+QEMU_SOFTMMU_TARGETS="x86_64 arm i386" USE="xen virtfs ssh" emerge -vq qemu
 EOF
