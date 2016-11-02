@@ -27,5 +27,5 @@ USE="headless" emerge -vq vagrant
 mkdir -p /etc/portage/package.license
 echo "=app-emulation/virtualbox-extpack-oracle-4.3.38.106717 PUEL" > /etc/portage/package.license/virtualbox-extpack-oracle
 USE="headless" emerge virtualbox-extpack-oracle
-USE="xen virtfs ssh" emerge qemu
+USE="xen virtfs ssh" emerge -vq qemu
 EOF
