@@ -1,6 +1,6 @@
 #!/bin/bash
 
-hroot /mnt/gentoo /bin/bash <<'EOF'
+chroot /mnt/gentoo /bin/bash <<'EOF'
 emerge -vq app-admin/sysklogd
 rc-update add sysklogd default
 emerge -vq sys-process/cronie
