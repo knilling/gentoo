@@ -8,7 +8,8 @@ rc-update add cronie default
 emerge -vq sys-apps/mlocate
 rc-update add sshd default
 emerge -vq net-misc/dhcpcd
-USE="minimal" emerge vim
+USE="minimal" emerge -vq vim
+emerge -vq dev-vcs/git
 cat > /etc/portage/package.keywords/vagrant <<'DATA'
 =dev-ruby/nokogiri-1.6.8.1 ~amd64
 =dev-ruby/hashicorp-checkpoint-0.1.4-r1 ~amd64
@@ -22,7 +23,7 @@ cat > /etc/portage/package.keywords/vagrant <<'DATA'
 =app-emulation/vagrant-1.8.6 ~amd64
 =dev-ruby/listen-3.1.5 ~amd64
 DATA
-USE="headless" emerge vagrant
+USE="headless" emerge -vq vagrant
 mkdir -p /etc/portage/package.license
 echo "=app-emulation/virtualbox-extpack-oracle-4.3.38.106717 PUEL" > /etc/portage/package.license/virtualbox-extpack-oracle
 USE="headless" emerge virtualbox-extpack-oracle
