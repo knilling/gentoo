@@ -1,5 +1,5 @@
 #!/bin/bash
 
-umount -l /mnt/gentoo/dev{/shm,/pts,}
-umount /mnt/gentoo{/boot,/sys,/proc,}
-rm /stage3-*.tar.bz2*
+chroot /mnt/gentoo /bin/bash <<'EOF'
+eselect news read > /dev/null
+EOF
