@@ -1,3 +1,3 @@
 #!/bin/bash
 
-for i in $(ls -1 *.sh | grep -v '^00'); do $i; done
+for i in $(ls -1 *.sh | grep -v '^00'); do ./$i; done
