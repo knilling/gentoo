@@ -23,9 +23,15 @@ cat > /etc/portage/package.keywords/vagrant <<'DATA'
 =app-emulation/vagrant-1.8.6 ~amd64
 =dev-ruby/listen-3.1.5 ~amd64
 DATA
-USE="headless" emerge -vq vagrant
+cat > /etc/portage/package.use/vagrant << DATA
+>=media-libs/libsdl-1.2.15-r9 X
+DATA
+cat > /etc/portage/package.use/virtualbox << DATA
+headless
+DATA
+USE="cpu_flags_x86_mmx" emerge -vq vagrant
 mkdir -p /etc/portage/package.license
 echo "=app-emulation/virtualbox-extpack-oracle-4.3.38.106717 PUEL" > /etc/portage/package.license/virtualbox-extpack-oracle
-USE="headless" emerge virtualbox-extpack-oracle
+emerge virtualbox-extpack-oracle
 USE="xen virtfs ssh" emerge -vq qemu
 EOF
