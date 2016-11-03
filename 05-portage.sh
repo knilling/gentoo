@@ -4,7 +4,6 @@ echo 'Sync portage'
 chroot /mnt/gentoo /bin/bash <<'EOF'
 mkdir /usr/portage
 emerge-webrsync -v -q
-echo "MAKEOPTS=\"-j12\"" >> /etc/portage/make.conf
 cat > /etc/portage/make.conf <<'DATA'
 # Please consult /usr/share/portage/config/make.conf.example for a more
 # detailed example.
