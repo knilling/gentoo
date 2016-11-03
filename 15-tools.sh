@@ -8,7 +8,8 @@ rc-update add cronie default
 emerge -vq sys-apps/mlocate
 rc-update add sshd default
 emerge -vq net-misc/dhcpcd
-USE="minimal" emerge -vq vim
+echo "minimal" > /etc/portage/package.use/vim
+emerge -vq vim
 emerge -vq dev-vcs/git
 emerge -vq lsof
 emerge -vq htop
