@@ -8,14 +8,23 @@ rc-update add cronie default
 emerge -vq sys-apps/mlocate
 rc-update add sshd default
 emerge -vq net-misc/dhcpcd
-echo "minimal" > /etc/portage/package.use/vim
-emerge -vq vim
+mkdir -p /etc/portage/package.use/app-editors/vim
+echo ">=app-editors/vim-7.4.769 minimal" > /etc/portage/package.use/app-editors/vim
+emerge -vq app-editors/vim
 emerge -vq dev-vcs/git
-emerge -vq lsof
-emerge -vq htop
-USE="-cpu_flags_x86_ssse3 -cpu_flags_x86_sse2 headless" emerge -vq virtualbox
+emerge -vq sys-process/lsof
+emerge -vq sys-process/htop
+mkdir -p etc/portage/package.use/app-emulation/
+echo ">=app-emulation/virtualbox-5.1.8 headless -qt5" > /etc/portage/package.use/app-emulation/virtualbox
+cat >> /etc/portage/package.accept_keywords << 'DATA'
+>=dev-util/kbuild-0.1.9998_pre20131130-r1 ~amd64
+>=app-emulation/virtualbox-modules-5.1.8 ~amd64
+>=dev-libs/libpcre-8.38-r1 pcre16
+>=app-emulation/virtualbox-5.1.8 ~amd64
+DATA
+emerge -vq app-emulation/virtualbox
 mkdir -p /etc/portage/package.license
-echo "=app-emulation/virtualbox-extpack-oracle-4.3.38.106717 PUEL" > /etc/portage/package.license/virtualbox-extpack-oracle
+echo ">=app-emulation/virtualbox-extpack-oracle-4.3.38.106717 PUEL" > /etc/portage/package.license/virtualbox-extpack-oracle
 emerge virtualbox-extpack-oracle
 cat > /etc/portage/package.keywords/vagrant <<'DATA'
 =dev-ruby/nokogiri-1.6.8.1 ~amd64
@@ -33,6 +42,7 @@ DATA
 cat > /etc/portage/package.use/vagrant << DATA
 >=media-libs/libsdl-1.2.15-r9 X
 DATA
-USE="cpu_flags_x86_mmx" emerge -vq vagrant
-QEMU_SOFTMMU_TARGETS="x86_64 arm i386" USE="xen virtfs ssh" emerge -vq qemu
+emerge -vq vagrant
+echo ">=app-emulation/qemu-2.7.0 xen virtfs ssh" > /etc/portage/package.use/app-emulation/qemu
+QEMU_SOFTMMU_TARGETS="x86_64 arm i386" emerge -vq qemu
 EOF
