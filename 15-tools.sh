@@ -40,9 +40,6 @@ cat > /etc/portage/package.keywords/vagrant <<'DATA'
 =app-emulation/vagrant-1.8.6 ~amd64
 =dev-ruby/listen-3.1.5 ~amd64
 DATA
-cat > /etc/portage/package.use/vagrant << DATA
->=media-libs/libsdl-1.2.15-r9 X
-DATA
 emerge -vq vagrant
 echo ">=app-emulation/qemu-2.7.0 xen virtfs ssh" > /etc/portage/package.use/app-emulation/qemu
 QEMU_SOFTMMU_TARGETS="x86_64 arm i386" emerge -vq qemu
