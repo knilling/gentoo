@@ -26,7 +26,7 @@ emerge -vq app-emulation/virtualbox
 gpasswd -a chris vboxusers
 mkdir -p /etc/portage/package.license
 echo ">=app-emulation/virtualbox-extpack-oracle-4.3.38.106717 PUEL" > /etc/portage/package.license/virtualbox-extpack-oracle
-emerge virtualbox-extpack-oracle
+emerge -vq virtualbox-extpack-oracle
 cat > /etc/portage/package.keywords/vagrant <<'DATA'
 =dev-ruby/nokogiri-1.6.8.1 ~amd64
 =dev-ruby/hashicorp-checkpoint-0.1.4-r1 ~amd64
