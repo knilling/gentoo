@@ -42,6 +42,7 @@ cat > /etc/portage/package.keywords/app-emulation/vagrant <<'DATA'
 =dev-ruby/listen-3.1.5 ~amd64
 DATA
 emerge -vq app-emulation/vagrant
+mkdir -p /etc/portage/package.use/app-emulation/
 echo ">=app-emulation/qemu-2.7.0 xen virtfs ssh" > /etc/portage/package.use/app-emulation/qemu
 QEMU_SOFTMMU_TARGETS="x86_64 arm i386" emerge -vq app-emulation/qemu
 EOF
