@@ -18,6 +18,7 @@ mkdir -p etc/portage/package.use/app-emulation/
 cat >> /etc/portage/package.accept_keywords << 'DATA'
 >=dev-util/kbuild-0.1.9998_pre20131130-r1 ~amd64
 >=app-emulation/virtualbox-modules-5.1.8 ~amd64
+>=app-emulation/virtualbox-extpack-oracle-5.1.8 ~amd64
 >=dev-libs/libpcre-8.38-r1 pcre16
 >=app-emulation/virtualbox-5.1.8 ~amd64
 DATA
