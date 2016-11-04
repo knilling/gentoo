@@ -15,7 +15,6 @@ emerge -vq dev-vcs/git
 emerge -vq sys-process/lsof
 emerge -vq sys-process/htop
 mkdir -p etc/portage/package.use/app-emulation/
-echo ">=app-emulation/virtualbox-5.1.8 headless -qt5" > /etc/portage/package.use/app-emulation/virtualbox
 cat >> /etc/portage/package.accept_keywords << 'DATA'
 >=dev-util/kbuild-0.1.9998_pre20131130-r1 ~amd64
 >=app-emulation/virtualbox-modules-5.1.8 ~amd64
@@ -26,7 +25,7 @@ emerge -vq app-emulation/virtualbox
 gpasswd -a chris vboxusers
 mkdir -p /etc/portage/package.license
 echo ">=app-emulation/virtualbox-extpack-oracle-4.3.38.106717 PUEL" > /etc/portage/package.license/virtualbox-extpack-oracle
-emerge -vq virtualbox-extpack-oracle
+emerge -vq app-emulation/virtualbox-extpack-oracle
 cat > /etc/portage/package.keywords/vagrant <<'DATA'
 =dev-ruby/nokogiri-1.6.8.1 ~amd64
 =dev-ruby/hashicorp-checkpoint-0.1.4-r1 ~amd64
