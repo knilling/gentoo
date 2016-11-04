@@ -8,7 +8,7 @@ rc-update add cronie default
 emerge -vq sys-apps/mlocate
 rc-update add sshd default
 emerge -vq net-misc/dhcpcd
-mkdir -p /etc/portage/package.use/app-editors/vim
+mkdir -p /etc/portage/package.use/app-editors/
 echo ">=app-editors/vim-7.4.769 minimal" > /etc/portage/package.use/app-editors/vim
 emerge -vq app-editors/vim
 emerge -vq dev-vcs/git
