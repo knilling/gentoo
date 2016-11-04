@@ -23,6 +23,7 @@ cat >> /etc/portage/package.accept_keywords << 'DATA'
 >=app-emulation/virtualbox-5.1.8 ~amd64
 DATA
 emerge -vq app-emulation/virtualbox
+gpasswd -a chris vboxusers
 mkdir -p /etc/portage/package.license
 echo ">=app-emulation/virtualbox-extpack-oracle-4.3.38.106717 PUEL" > /etc/portage/package.license/virtualbox-extpack-oracle
 emerge virtualbox-extpack-oracle
