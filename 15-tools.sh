@@ -24,10 +24,11 @@ cat >> /etc/portage/package.accept_keywords << 'DATA'
 DATA
 emerge -vq app-emulation/virtualbox
 gpasswd -a chris vboxusers
-mkdir -p /etc/portage/package.license
-echo ">=app-emulation/virtualbox-extpack-oracle-4.3.38.106717 PUEL" > /etc/portage/package.license/virtualbox-extpack-oracle
+mkdir -p /etc/portage/package.license/app-emulation/
+echo ">=app-emulation/virtualbox-extpack-oracle-4.3.38.106717 PUEL" > /etc/portage/package.license/app-emulation/virtualbox-extpack-oracle
 emerge -vq app-emulation/virtualbox-extpack-oracle
-cat > /etc/portage/package.keywords/vagrant <<'DATA'
+mkdir -p /etc/portage/package.keywords/app-emulation/
+cat > /etc/portage/package.keywords/app-emulation/vagrant <<'DATA'
 =dev-ruby/nokogiri-1.6.8.1 ~amd64
 =dev-ruby/hashicorp-checkpoint-0.1.4-r1 ~amd64
 =dev-ruby/rest-client-1.8.0-r3 ~amd64
@@ -40,7 +41,7 @@ cat > /etc/portage/package.keywords/vagrant <<'DATA'
 =app-emulation/vagrant-1.8.6 ~amd64
 =dev-ruby/listen-3.1.5 ~amd64
 DATA
-emerge -vq vagrant
+emerge -vq app-emulation/vagrant
 echo ">=app-emulation/qemu-2.7.0 xen virtfs ssh" > /etc/portage/package.use/app-emulation/qemu
-QEMU_SOFTMMU_TARGETS="x86_64 arm i386" emerge -vq qemu
+QEMU_SOFTMMU_TARGETS="x86_64 arm i386" emerge -vq app-emulation/qemu
 EOF
