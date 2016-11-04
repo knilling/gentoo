@@ -14,7 +14,7 @@ CXXFLAGS="${CFLAGS}"
 CHOST="x86_64-pc-linux-gnu"
 # These are the USE and USE_EXPAND flags that were used for
 # buidling in addition to what is provided by the profile.
-USE="bindist"
+USE="bindist headless -qt5"
 CPU_FLAGS_X86="aes mcx16 msahf popcnt sse sse2 sse3 sse4.1 sse4.2 ssse3 mmx"
 PORTDIR="/usr/portage"
 DISTDIR="${PORTDIR}/distfiles"
