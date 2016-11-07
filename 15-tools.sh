@@ -14,7 +14,8 @@ emerge -vq app-editors/vim
 emerge -vq dev-vcs/git
 emerge -vq sys-process/lsof
 emerge -vq sys-process/htop
-mkdir -p etc/portage/package.use/app-emulation/
+mkdir -p /etc/portage/package.use/app-emulation/
+echo ">=app-emulation/virtualbox-5.1.8 vnc" > /etc/portage/package.use/app-emulation/virtualbox
 cat >> /etc/portage/package.accept_keywords << 'DATA'
 >=dev-util/kbuild-0.1.9998_pre20131130-r1 ~amd64
 >=app-emulation/virtualbox-modules-5.1.8 ~amd64
