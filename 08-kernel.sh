@@ -9,6 +9,9 @@ cp -Rp /lib/modules/`uname -r` /mnt/gentoo/lib/modules
 
 chroot /mnt/gentoo /bin/bash <<'EOF'
 emerge -vq sys-kernel/gentoo-sources
+cp -v /boot/config-gentoo /usr/src/linux/.config
+make oldconfig
+make modules_prepare
 printf "modules=\"" >> /etc/conf.d/modules
 cat /proc/modules | cut -d ' ' -f 1 >> /etc/conf.d/modules
 printf "\"\n" >> /etc/conf.d/modules
