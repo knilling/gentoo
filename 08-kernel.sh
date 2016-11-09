@@ -1,7 +1,7 @@
 #!/bin/bash
 
 chroot /mnt/gentoo /bin/bash <<'EOF'
-emerge -qv -j15 --load-average 8 sys-kernel/gentoo-sources
+emerge -qv sys-kernel/gentoo-sources
 EOF
 
 zcat /proc/config.gz > /mnt/gentoo/usr/src/linux/.config
